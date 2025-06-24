@@ -51,7 +51,12 @@ export default function GraphCanvas({
   centralNode,
   onNodeClick,
 }: GraphCanvasProps) {
-  const fgRef = useRef<ForceGraphMethods | null>(null);
+  type FGInstance = ForceGraphMethods<
+    NodeObject<NodeData>,
+    LinkObject<NodeData, LinkData>
+  >;
+
+  const fgRef = useRef<FGInstance | undefined>(undefined);
 
   const [hoveredLink, setHoveredLink] = useState<LinkData | null>(null);
   const [selectedLink, setSelectedLink] = useState<LinkData | null>(null);
