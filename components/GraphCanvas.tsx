@@ -57,7 +57,7 @@ export default function GraphCanvas({
   const [selectedLink, setSelectedLink] = useState<LinkData | null>(null);
 
   const graphData = useMemo(() => data || { nodes: [], links: [] }, [data]);
-
+  console.log(hoveredLink);
   useEffect(() => {
     if (fgRef.current && graphData?.nodes?.length) {
       setTimeout(() => {
